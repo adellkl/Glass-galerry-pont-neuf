@@ -1,0 +1,6 @@
+{
+  "name": "Class Gallery Paris",
+  "description": "An elegant, minimalist art gallery showcasing premium paintings, bronze sculptures, and contemporary glass art near Pont-Neuf in Paris.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

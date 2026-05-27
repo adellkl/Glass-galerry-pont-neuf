@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=JetBrains+Mono:wght@200;300;400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", serif;
+  --font-sans: "Montserrat", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-gold-50: #fbf9f4;
+  --color-gold-100: #faf6eb;
+  --color-gold-200: #d6caa9;
+  --color-gold-300: #ccb172;
+  --color-gold-400: #1a1a1a; /* Changed gold colors to sophisticated deep charcoal/black styles to match */
+  --color-gold-500: #000000;
+  --color-gold-600: #111111;
+  --color-gold-700: #222222;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom minimalist black & white scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fdfdfd;
+  border-left: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Helper styles for high-fidelity luxury typography */
+.title-tracking {
+  letter-spacing: 0.15em;
+}
+
+.title-tracking-wide {
+  letter-spacing: 0.25em;
+}
+
+.tracking-widest-xl {
+  letter-spacing: 0.25em;
+}
+
+/* Image styling */
+.art-image-zoom {
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.art-image-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* Elegant custom layouts from the Artistic Flair design system */
+.border-thin {
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.hero-mask {
+  background: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-mask::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,0,0,0.02) 40px, rgba(0,0,0,0.02) 41px);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
