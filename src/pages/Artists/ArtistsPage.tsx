@@ -5,6 +5,7 @@
 
 import { useState } from 'react';
 import { ARTISTS, ARTWORKS } from '../../data';
+import ArtworkPreviewImage from '../../components/ArtworkPreviewImage';
 import { Artist, Artwork } from '../../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { Quote, Sparkles, MessageCircle, Info, Filter } from 'lucide-react';
@@ -376,24 +377,24 @@ export default function ArtistsPage({ lang, onSelectArtwork, onInquire, onFilter
                       : 'All artworks by this creator are currently assigned to private museum collections or online reservations. Speak with our curatorial desk to commission new pieces.'}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                     {activeArtistArtworks.map(artwork => (
                       <div
                         key={artwork.id}
                         onClick={() => onSelectArtwork(artwork)}
-                        className="group bg-white border border-black/10 p-3 hover:border-black/30 transition-all duration-300 cursor-pointer text-left relative flex flex-col justify-between"
+                        className="group bg-white border border-black/10 p-2.5 hover:border-black/30 transition-all duration-300 cursor-pointer text-left relative flex flex-col justify-between"
                         id={`artist-work-card-${artwork.id}`}
                       >
                         <div>
-                          <div className="aspect-[4/3] bg-neutral-50 overflow-hidden relative mb-3">
-                            <img
+                          <div className="relative mb-2">
+                            <ArtworkPreviewImage
                               src={artwork.image}
                               alt={artwork.title}
-                              referrerPolicy="no-referrer"
-                              className="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-[1.01]"
+                              aspect="portrait"
+                              size="sm"
                             />
                             {artwork.isOnlineOnly && (
-                              <div className="absolute top-2 right-2 bg-red-600 text-white text-[8px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 shadow-sm">
+                              <div className="absolute top-2 right-2 z-10 bg-red-600 text-white text-[8px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 shadow-sm pointer-events-none">
                                 {lang === 'FR' ? 'LIGNE UNIQUE' : 'ONLINE EXCLUSIVE'}
                               </div>
                             )}
@@ -401,21 +402,21 @@ export default function ArtistsPage({ lang, onSelectArtwork, onInquire, onFilter
                           
                           <div className="space-y-1">
                             <div className="flex items-center justify-between">
-                              <h5 className="font-serif text-sm font-semibold text-neutral-900 group-hover:text-black transition-colors uppercase tracking-wide">
+                              <h5 className="font-serif text-xs font-semibold text-neutral-900 group-hover:text-black transition-colors uppercase tracking-wide line-clamp-2 leading-snug">
                                 {artwork.title}
                               </h5>
-                              <span className="font-mono text-[10px] text-neutral-400 font-bold">{artwork.year}</span>
+                              <span className="font-mono text-[9px] text-neutral-400 font-bold shrink-0">{artwork.year}</span>
                             </div>
-                            <p className="text-[11px] font-sans text-neutral-500 italic line-clamp-1">
+                            <p className="text-[10px] font-sans text-neutral-500 italic line-clamp-1">
                               {artwork.medium}
                             </p>
-                            <p className="text-[10px] font-mono text-neutral-400">
+                            <p className="text-[9px] font-mono text-neutral-400 line-clamp-1">
                               {artwork.dimensions} • {artwork.material}
                             </p>
                           </div>
                         </div>
 
-                        <div className="pt-3 mt-3 border-t border-black/5 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase font-bold text-neutral-600 group-hover:text-black">
+                        <div className="pt-2 mt-2 border-t border-black/5 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase font-bold text-neutral-600 group-hover:text-black">
                           <span>{lang === 'FR' ? 'Inspecter la fiche' : 'Inspect work details'}</span>
                           <span>→</span>
                         </div>

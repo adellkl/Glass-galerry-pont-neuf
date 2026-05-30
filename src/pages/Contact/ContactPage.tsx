@@ -42,7 +42,7 @@ export default function ContactPage({ initialSubject = '', lang }: ContactPagePr
 
   return (
     <section className="bg-white py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-8 overflow-hidden">
-      
+
       {/* Editorial Header */}
       <div className="text-left space-y-3 mb-16 border-b border-black/5 pb-6">
         <div className="flex items-center space-x-2">
@@ -55,20 +55,20 @@ export default function ContactPage({ initialSubject = '', lang }: ContactPagePr
           {lang === 'FR' ? 'Contact & Vente' : 'Contact Us'}
         </h2>
         <p className="max-w-2xl text-xs sm:text-sm font-light leading-relaxed text-neutral-600 font-sans">
-          {lang === 'FR' 
-            ? 'Pour toute acquisition d\'œuvre d\'art, estimation, demande concernant les peintures en ligne d\'IRINI ou visite privée, veuillez remplir ce formulaire.' 
+          {lang === 'FR'
+            ? 'Pour toute acquisition d\'œuvre d\'art, estimation, demande concernant les peintures en ligne d\'IRINI ou visite privée, veuillez remplir ce formulaire.'
             : 'For all artwork acquisitions, valuations, inquiries on IRINI\'s online paintings, or private appointments, reach out to our team.'}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-start">
-        
+
         {/* Left Column: Direct Contacts & Marc Mneimné profile (Column 5/12) */}
         <div className="lg:col-span-5 space-y-8 text-left">
-          
+
           <div className="bg-neutral-50 border border-black/10 p-8 relative overflow-hidden space-y-6">
             <div className="absolute top-0 right-0 w-32 h-32 bg-neutral-100 rounded-full filter blur-xl pointer-events-none" />
-            
+
             <div className="space-y-1.5 border-b border-black/10 pb-5">
               <span className="text-[10px] font-mono tracking-widest text-neutral-500 uppercase font-bold">
                 {lang === 'FR' ? 'DIRECTION DE LA GALERIE' : 'GALLERY ADMINISTRATION'}
@@ -83,13 +83,13 @@ export default function ContactPage({ initialSubject = '', lang }: ContactPagePr
 
             <div className="space-y-4">
               <p className="text-xs text-neutral-600 leading-relaxed font-sans font-light">
-                {lang === 'FR' 
-                  ? 'La Class Gallery-Paris vous accompagne depuis de nombreuses années dans l\'acquisition de bronzes de créateurs renommés et d\'art contemporain sélectif.' 
+                {lang === 'FR'
+                  ? 'La Class Gallery-Paris vous accompagne depuis de nombreuses années dans l\'acquisition de bronzes de créateurs renommés et d\'art contemporain sélectif.'
                   : 'Class Gallery-Paris provides bespoke consulting on bronze acquisitions, marbles, and exclusive abstract paintings for international collections.'}
               </p>
 
               <div className="space-y-3.5 pt-2">
-                
+
                 {/* Portable direct number */}
                 <a
                   href={`tel:${GALLERY_INFO.phone.replace(/\s+/g, '')}`}
@@ -160,8 +160,8 @@ export default function ContactPage({ initialSubject = '', lang }: ContactPagePr
               {lang === 'FR' ? 'HORAIRES DE PONT-NEUF' : 'PONT-NEUF OPENING HOURS'}
             </span>
             <p className="text-neutral-600 leading-relaxed font-sans font-light">
-              {lang === 'FR' 
-                ? 'La galerie physique est ouverte du mardi au samedi de 11h à 19h. Notre portail d\'acquisition pour les peintures d\'IRINI reste actif 24h/24.' 
+              {lang === 'FR'
+                ? 'La galerie physique est ouverte du mardi au samedi de 11h à 19h. Notre portail d\'acquisition pour les peintures d\'IRINI reste actif 24h/24.'
                 : 'The physical gallery is open from Tuesday to Saturday, 11 AM to 7 PM. Our online checkout or request desk remains operational 24/7.'}
             </p>
           </div>
@@ -279,14 +279,14 @@ export default function ContactPage({ initialSubject = '', lang }: ContactPagePr
                 <div className="w-16 h-16 bg-neutral-100 border border-black rounded-full flex items-center justify-center mx-auto">
                   <Check className="w-8 h-8 text-black" />
                 </div>
-                
+
                 <div className="space-y-2">
                   <h3 className="font-serif text-xl sm:text-2xl tracking-widest uppercase text-black font-light">
                     {lang === 'FR' ? 'Message Transmis' : 'Message Sent'}
                   </h3>
                   <p className="max-w-md mx-auto text-xs text-neutral-600 leading-relaxed font-sans font-light">
-                    {lang === 'FR' 
-                      ? 'Cher collectionneur, votre demande a bien été transmise à Marc Mneimné. Un membre de la galerie vous contactera sous 24 heures.' 
+                    {lang === 'FR'
+                      ? 'Cher collectionneur, votre demande a bien été transmise à Marc Mneimné. Un membre de la galerie vous contactera sous 24 heures.'
                       : 'Dear collector, your inquiry has been forwarded to Marc Mneimné. A gallery representative will verify and correspond under 24 hours.'}
                   </p>
                 </div>

@@ -48,7 +48,7 @@ export default function HomePage({ setActiveTab, lang, handleFilterJumper }: Hom
               { 
                 titleFr: 'Peintures (IRINI)', 
                 titleEn: 'Paintings (IRINI)', 
-                img: 'https://images.unsplash.com/photo-1549887552-cb1331d50baf?auto=format&fit=crop&q=80&w=800', 
+                img: '/images/gallery/painters/painters-02-2489176450.jpg', 
                 tab: 'PAINTERS',
                 descFr: 'Toiles d\'IRINI épurées, exclusivement commandées en ligne.',
                 descEn: 'Minimal abstract canvases by IRINI, sold online only.'
@@ -56,7 +56,7 @@ export default function HomePage({ setActiveTab, lang, handleFilterJumper }: Hom
               { 
                 titleFr: 'Bronze & Sculpture', 
                 titleEn: 'Bronze & Sculptures', 
-                img: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800', 
+                img: '/images/gallery/sculptors/sculptors-01-2489996626.jpg', 
                 tab: 'SCULPTORS',
                 descFr: 'Les marbres lisses de Dominique Rayou et monolithes de Serge Couvert.',
                 descEn: 'Stunning direct-carvings by Rayou and totemic wood by Couvert.'
@@ -64,7 +64,7 @@ export default function HomePage({ setActiveTab, lang, handleFilterJumper }: Hom
               { 
                 titleFr: 'Verrerie Contemporaine', 
                 titleEn: 'Blown Glass Art', 
-                img: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=800', 
+                img: '/images/gallery/glass/glass-01-2434474031.jpg', 
                 tab: 'GLASS',
                 descFr: 'Prismes cristallins et sculptures optiques de Jean-Pierre Umberto.',
                 descEn: 'Translucent optical blocks and silica shapes by Umberto.'

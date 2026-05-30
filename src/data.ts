@@ -4,13 +4,18 @@
  */
 
 import { Artist, Artwork, Exhibition, NewsItem } from './types';
+import { GALLERY_ARTWORKS } from './galleryArtworks';
+
+function featuredForArtist(artistId: string, fallback: string): string {
+  return GALLERY_ARTWORKS.find((a) => a.artistId === artistId)?.image ?? fallback;
+}
 
 export const ARTISTS: Artist[] = [
   {
     id: 'dominique-rayou',
     name: 'Dominique RAYOU',
     type: 'SCULPTOR',
-    featuredImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
+    featuredImage: featuredForArtist('dominique-rayou', '/images/gallery/sculptors/sculptors-01-2489996626.jpg'),
     bioFr: 'Dominique RAYOU est un sculpteur français d\'exception. En travaillant le bronze de fonderie et la pureté des marbres blancs, il façonne des œuvres caractérisées par la tendresse infinie du geste, l\'harmonie des formes organiques d\'une pureté intemporelle et des rondeurs maternelles capturant la sérénité universelle.',
     bioEn: 'Dominique RAYOU is an exceptional French sculptor. Working with foundry bronze and the purity of white marble, he shapes artworks characterized by infinite tenderness of gesture, the harmony of timelessly pure organic forms, and maternal roundness capturing universal serenity.',
     mediumsFr: ['Bronze d\'Art', 'Marbre Blanc', 'Taille Directe'],
@@ -22,7 +27,7 @@ export const ARTISTS: Artist[] = [
     id: 'serge-couvert',
     name: 'Serge COUVERT',
     type: 'SCULPTOR',
-    featuredImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800',
+    featuredImage: featuredForArtist('serge-couvert', '/images/gallery/sculptors/sculptors-02-2489996627.jpg'),
     bioFr: `Né en 1953 en Savoie, Serge COUVERT passe son enfance dans son petit village en pleine transition entre la vie agropastorale de montagne et les débuts d'une conversion vers le tourisme.
 
 Il commence à travailler à 17 ans dans l'atelier d'un menuisier d'Aussois. Après un CAP de menuiserie ébénisterie et quelques stages de formation artistique, il s'installe en 1976 comme artisan sculpteur sur bois. Très attaché à son village, il intègre également une association d'artisans pour développer les activités artistiques et artisanales locales.
@@ -64,7 +69,7 @@ Competitions & Awards:
     id: 'irini',
     name: 'IRINI',
     type: 'PAINTER',
-    featuredImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=800',
+    featuredImage: featuredForArtist('irini', '/images/gallery/painters/painters-02-2489176450.jpg'),
     bioFr: `Membre de la Société des Artistes de Russie, IRINI éait née à Moscou en 1958. Diplômée en ingénierie de production textile et en cartographie (MIIGAiK), elle cultive d'abord sa fibre artistique par l'apprentissage du violon au conservatoire avec le professeur Podgorny AP, puis par le violon jazz à la fin de ses études secondaires.
 
 Parallèlement à la musique, elle se passionne pour la peinture, la décoration et l'artisanat d'art. Au milieu des années 80, à l'aube des réformes en Union Soviétique, elle fonde son propre studio de théâtre pour enfants (« Unit ») à Moscou, qu'elle dirige jusqu'en 1992.
@@ -92,7 +97,7 @@ Over the last ten years, Irini has held more than 40 solo exhibitions in various
     id: 'arthur-gaida',
     name: 'Arthur GAÏDA',
     type: 'PAINTER',
-    featuredImage: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800',
+    featuredImage: featuredForArtist('arthur-gaida', '/images/gallery/painters/painters-03-2489176451.jpg'),
     bioFr: `Né en 1969, Arthur GAÏDA réalise des compositions dans un style pictural où se côtoient Surréalisme et Hyperréalisme, et auxquels se marie l’art du Trompe l'œil.
 
 Ses tableaux expriment toujours une symbolique liée à l'existence humaine ou végétale, avec l'implication de rébus qui traduisent sa vision optimiste du devenir de l'humanité.
@@ -120,7 +125,7 @@ Balancing on the support used by painters to make large formats, observes the ar
     id: 'jean-pierre-umberto',
     name: 'Jean-Pierre UMBERTO',
     type: 'GLASS',
-    featuredImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800',
+    featuredImage: featuredForArtist('jean-pierre-umberto', '/images/gallery/glass/glass-01-2434474031.jpg'),
     bioFr: 'Formé aux techniques ancestrales de Murano, Jean-Pierre UMBERTO maîtrise la fusion de la silice qu\'il pousse vers l\'épure absolue. Ses sculptures de verre soufflé de forte épaisseur jouent avec la gravité, emprisonnant des bulles d\'un vide parfait et réfractant la lumière en spectres lunaires.',
     bioEn: 'Trained in ancestral Murano techniques, Jean-Pierre UMBERTO commands the fusion of silica, pushing it toward absolute minimalism. His thick-blown glass structures play with gravity, trapping bubbles of perfect vacuum and refracting light in lunar spectrums.',
     mediumsFr: ['Cristal de Quartz soufflé', 'Verre fusionné multi-couches', 'Pâte de verre'],
@@ -130,244 +135,7 @@ Balancing on the support used by painters to make large formats, observes the ar
   }
 ];
 
-export const ARTWORKS: Artwork[] = [
-  // Dominique Rayou (Sculptures)
-  {
-    id: 'rayou1',
-    title: 'Maternité Sacrée',
-    artistId: 'dominique-rayou',
-    artistName: 'Dominique RAYOU',
-    category: 'SCULPTORS',
-    medium: 'Bronze patiné à la main (Édition limitée)',
-    year: '2024',
-    dimensions: '42 x 28 x 20 cm',
-    material: 'Bronze',
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Une interprétation merveilleusement lisse et organique de l\'intimité maternelle, coulée en bronze d\'art puis polie jusqu\'à obtenir un éclat satiné rappelant la douceur de la peau.',
-    descriptionEn: 'A wonderfully smooth and organic interpretation of maternal intimacy, cast in art bronze then hand-polished to a satin finish recalling the softness of skin.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'rayou2',
-    title: 'Le Silence de l\'Âme',
-    artistId: 'dominique-rayou',
-    artistName: 'Dominique RAYOU',
-    category: 'SCULPTORS',
-    medium: 'Marbre de Carrare de taille directe',
-    year: '2023',
-    dimensions: '58 x 22 x 18 cm',
-    material: 'Marbre de Carrare',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Œuvre de taille directe sculptée dans la masse d\'un marbre sélectionné à Carrare. Ses lignes épurées appellent à la contemplation sereine.',
-    descriptionEn: 'A direct-carving masterpiece sculpted from a single block of selected Carrara marble. Its minimalist, flowing lines evoke peaceful contemplation.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'rayou3',
-    title: 'Forme de l\'Envol',
-    artistId: 'dominique-rayou',
-    artistName: 'Dominique RAYOU',
-    category: 'SCULPTORS',
-    medium: 'Bronze poli verni sur socle granit',
-    year: '2025',
-    dimensions: '35 x 15 x 12 cm',
-    material: 'Bronze & Granit',
-    image: 'https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Courbe ascendante symbolisant la libération de l\'esprit des contraintes terrestres. Une finition miroir contrastée par des zones rugueuses sombres.',
-    descriptionEn: 'An ascending curve symbolizing the liberation of the spirit from earthly bonds. A mirror finish contrasted with dark textured bronze crevices.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-
-  // Serge Couvert (Sculptures)
-  {
-    id: 'couvert1',
-    title: 'Totem de l\'Ancêtre',
-    artistId: 'serge-couvert',
-    artistName: 'Serge COUVERT',
-    category: 'SCULPTORS',
-    medium: 'Chêne centenaire brûlé et bronze d\'art',
-    year: '2024',
-    dimensions: '145 x 24 x 24 cm',
-    material: 'Chêne sculpté & Bronze',
-    image: 'https://images.unsplash.com/photo-1536924940846-227afb31e2a5?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Une œuvre monumentale liant la chaleur noble du vieux chêne noirci et la rigidité du bronze coulé. Une présence sacrée et verticale.',
-    descriptionEn: 'A monumental artwork merging the noble warmth of darkened old oak and the cold strength of cast bronze. A sacred, grounding vertical presence.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'couvert2',
-    title: 'Sentinelle Paisible',
-    artistId: 'serge-couvert',
-    artistName: 'Serge COUVERT',
-    category: 'SCULPTORS',
-    medium: 'Bronze brut patiné de fonderie',
-    year: '2023',
-    dimensions: '82 x 18 x 16 cm',
-    material: 'Bronze',
-    image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Silhouette élancée aux traits totémiques suggérant la vigilance tranquille d\'un protecteur imaginaire.',
-    descriptionEn: 'A slender figure with totemic engravings, suggesting the peaceful watchfulness of an imaginary guardian.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-
-  // IRINI (Paintings - ONLINE-ONLY)
-  {
-    id: 'irini1',
-    title: 'Brumes d\'Art Gallery',
-    artistId: 'irini',
-    artistName: 'IRINI',
-    category: 'PAINTERS',
-    medium: 'Huile et pigments naturels sur bâche de lin',
-    year: '2025',
-    dimensions: '100 x 100 cm',
-    material: 'Huile sur lin',
-    image: 'https://images.unsplash.com/photo-1549887552-cb1331d50baf?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Contrastes intenses de blanc de titane pur et de charbon minéral denses. Les couches forment un voile mystérieux comme la brume d\'automne sur la Seine.',
-    descriptionEn: 'Intense contrasts of pure titanium white and dense mineral carbon. Layered textures form a mysterious veil akin to autumn fog over the River Seine.',
-    isOnlineOnly: true,
-    price: '3 800 €',
-    onExhibit: false
-  },
-  {
-    id: 'irini2',
-    title: 'Frisson Chromatique I',
-    artistId: 'irini',
-    artistName: 'IRINI',
-    category: 'PAINTERS',
-    medium: 'Acrylique texturée au couteau et feuille d\'or',
-    year: '2024',
-    dimensions: '120 x 80 cm',
-    material: 'Technique mixte sur toile',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Un geste puissant marqué par d\'élégantes coulures et des rehauts discrets de feuilles d\'or 24 carats captant les rayons rasants.',
-    descriptionEn: 'A powerful gestural sweep defined by elegant drippings and discreet highlights of 24-karat gold leaf capturing ambient light.',
-    isOnlineOnly: true,
-    price: '4 500 €',
-    onExhibit: false
-  },
-  {
-    id: 'irini3',
-    title: 'Horizons Obscurs',
-    artistId: 'irini',
-    artistName: 'IRINI',
-    category: 'PAINTERS',
-    medium: 'Gesso épais et huile d\'art',
-    year: '2025',
-    dimensions: '90 x 90 cm',
-    material: 'Gesso et huile sur châssis',
-    image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Profondeur insondable obtenue par empâtements successifs à la brosse. Une étude poignante de l\'obscurité fertile.',
-    descriptionEn: 'Fathomless spatial depth obtained through successive impasto brushwork. A poignant study of fertile darkness.',
-    isOnlineOnly: true,
-    price: '3 200 €',
-    onExhibit: false
-  },
-
-  // Arthur GAÏDA (Paintings)
-  {
-    id: 'gaida1',
-    title: 'La Palissade de Vie',
-    artistId: 'arthur-gaida',
-    artistName: 'Arthur GAÏDA',
-    category: 'PAINTERS',
-    medium: 'Huile sur toile de lin (Trompe l\'œil)',
-    year: '2024',
-    dimensions: '120 x 100 cm',
-    material: 'Huile sur lin',
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Une palissade vieillissante qui exprime encore la vitalité sacrée de son bois, juxtaposée avec une boîte métallique polluée et une chaussure abandonnée qui se désagrègent. Un engagement puissant pour la nature.',
-    descriptionEn: 'An aging wooden fence still expressing the sacred vitality of its timber, juxtaposed with a polluting metal box and a decaying abandoned shoe. A powerful statement for endangered nature.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'gaida2',
-    title: 'Le Message de la Vigne',
-    artistId: 'arthur-gaida',
-    artistName: 'Arthur GAÏDA',
-    category: 'PAINTERS',
-    medium: 'Huile sur toile (Surréalisme)',
-    year: '2023',
-    dimensions: '140 x 110 cm',
-    material: 'Huile sur toile',
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Un cep de vigne isolé chargé de grappes, protégé par une toile-bouclier symbolisant la vinification sacrée. Un tiroir ouvert au pied de la vigne attend que l\'on y dépose les écrits de la sagesse humaine.',
-    descriptionEn: 'An isolated grapevine loaded with clusters, protected by a shield-canvas representing sacred winemaking. An open drawer at the foot of the vine waits for writings of human wisdom.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'gaida3',
-    title: 'Sérénité d\'Atelier',
-    artistId: 'arthur-gaida',
-    artistName: 'Arthur GAÏDA',
-    category: 'PAINTERS',
-    medium: 'Huile et technique mixte (Hyperréalisme)',
-    year: '2025',
-    dimensions: '160 x 120 cm',
-    material: 'Huile sur châssis',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Une floraison luxuriante effaçant les moments de doute de l\'artiste. En équilibre sur l\'appui, l\'œuvre saisit l\'état d\'esprit du créateur dissimulé pour atteindre l\'aboutissement serein de son projet.',
-    descriptionEn: 'A lush, blooming floral motif erasing the moments of artistic doubt. Balanced on the support, the work captures the hidden creator\'s seeking state of mind in absolute serenity.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-
-  // Glass (Verre d'art)
-  {
-    id: 'glass1',
-    title: 'Lentille Astrale',
-    artistId: 'jean-pierre-umberto',
-    artistName: 'Jean-Pierre UMBERTO',
-    category: 'GLASS',
-    medium: 'Verre soufflé à double enveloppe et taille d\'optique',
-    year: '2024',
-    dimensions: '30 x 30 x 14 cm',
-    material: 'Cristal soufflé',
-    image: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Disque lourd de cristal pur poli au liège. Il agit comme un prisme focalisateur, métamorphosant le décor ambiant en fragments poétiques.',
-    descriptionEn: 'A heavy disk of pure crystal cork-polished. It operates as a focusing prism, morphing the ambient surroundings into poetic fragments.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'glass2',
-    title: 'Vasque Silice Érodée',
-    artistId: 'jean-pierre-umberto',
-    artistName: 'Jean-Pierre UMBERTO',
-    category: 'GLASS',
-    medium: 'Verre sculpté au jet de sable intense',
-    year: '2024',
-    dimensions: '25 x 45 x 30 cm',
-    material: 'Verre d\'art et acide',
-    image: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Contraste saisissant entre un coeur en verre translucide lissé par le feu et une texture externe mate érodée imitant la roche karstique.',
-    descriptionEn: 'A striking contrast between a fire-polished translucent glass center and a matte, eroded exterior surface mimicking karst rock.',
-    isOnlineOnly: false,
-    onExhibit: true
-  },
-  {
-    id: 'glass3',
-    title: 'Monolithe Oblique',
-    artistId: 'jean-pierre-umberto',
-    artistName: 'Jean-Pierre UMBERTO',
-    category: 'GLASS',
-    medium: 'Coulée de verre dense teintée au cobalt',
-    year: '2025',
-    dimensions: '52 x 16 x 12 cm',
-    material: 'Verre massif',
-    image: 'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=800',
-    descriptionFr: 'Verre monolithique élancé infusé de micro-bulles d\'air figurant une onde marine de cobalt figée dans l\'éternité de la matière.',
-    descriptionEn: 'A slender monolithic glass column infused with air micro-bubbles depicting a cobalt marine surge frozen in the eternity of matter.',
-    isOnlineOnly: false,
-    onExhibit: true
-  }
-];
+export const ARTWORKS: Artwork[] = GALLERY_ARTWORKS;
 
 export const EXHIBITIONS: Exhibition[] = [
   {
@@ -379,7 +147,7 @@ export const EXHIBITIONS: Exhibition[] = [
     descriptionFr: 'Retrouvez en permanence au cœur de la galerie Pont-Neuf l\'alliance poétique de deux maîtres sculpteurs contemporains. Les volumes fluides de Dominique Rayou dialoguent en parfaite harmonie avec la verticalité puissante de Serge Couvert.',
     descriptionEn: 'Experience permanently in the heart of Pont-Neuf gallery the poetic alliance of two contemporary master sculptors. Dominique Rayou\'s fluid structures dialogue in perfect harmony with the powerful verticality of Serge Couvert.',
     featuredArtists: ['dominique-rayou', 'serge-couvert'],
-    image: 'https://images.unsplash.com/photo-1594122230689-45899d9e6f69?auto=format&fit=crop&q=80&w=1600',
+    image: '/images/gallery/sculptors/sculptors-01-2489996626.jpg',
     status: 'PERMANENT'
   },
   {
@@ -391,7 +159,7 @@ export const EXHIBITIONS: Exhibition[] = [
     descriptionFr: 'Les peintures d\'IRINI sont actuellement disponibles UNIQUEMENT à la vente en ligne. Une occasion rare d\'acquérir des pièces majeures depuis notre portail sécurisé avec expédition assurée mondiale.',
     descriptionEn: 'IRINI\'s paintings are currently available ONLY via online orders. A rare opportunity to acquire major paintings directly from our secure portal with insured global delivery.',
     featuredArtists: ['irini'],
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
+    image: '/images/gallery/painters/painters-02-2489176450.jpg',
     status: 'TEMPORARY'
   }
 ];
